@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_31_220208) do
+ActiveRecord::Schema.define(version: 2018_09_17_003916) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -110,6 +110,13 @@ ActiveRecord::Schema.define(version: 2018_07_31_220208) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "packages", force: :cascade do |t|
+    t.string "tracking"
+    t.string "pkg_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "temps", force: :cascade do |t|
     t.string "sku"
     t.string "quantity"
@@ -128,6 +135,13 @@ ActiveRecord::Schema.define(version: 2018_07_31_220208) do
     t.decimal "ups_mi", precision: 10, scale: 2
     t.decimal "usps", precision: 10, scale: 2
     t.decimal "savings", precision: 10, scale: 2
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "username"
+    t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
