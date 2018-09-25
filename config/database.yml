@@ -30,8 +30,14 @@ development:
   database: smathews_dynamics_dvlp
 
 test:
-  <<: *default
-  database: smathews_dynamics_test
+  adapter: postgresql
+  encoding: unicode
+  database: uber
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: uber
+  password: shipoffers
+  host: 127.0.0.1
+  port: 5432
 
 
 production:
